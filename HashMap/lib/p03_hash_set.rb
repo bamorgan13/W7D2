@@ -37,7 +37,7 @@ class HashSet
     bigger_store = Array.new(new_size) {Array.new}
     @store.each do |bucket|
       bucket.each do |el|
-        bigger_store[el % new_size] << el
+        bigger_store[el.hash % new_size] << el
       end
     end
     @store = bigger_store
